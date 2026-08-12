@@ -1,0 +1,15 @@
+# IntelliJ
+.idea/
+
+# Env
+.env
+
+# Build
+target/
+
+# Logs
+*.log
+
+# Data
+influxdb_data/
+volume-data/

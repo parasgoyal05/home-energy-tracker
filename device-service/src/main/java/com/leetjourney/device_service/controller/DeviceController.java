@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/device")
 @RequiredArgsConstructor
@@ -21,7 +23,7 @@ public class DeviceController {
     @PostMapping("/create")
     public ResponseEntity<DeviceDto> createDevice(@RequestBody DeviceDto deviceDto) {
         DeviceDto createdDevice = deviceService.createDevice(deviceDto);
-        return ResponseEntity.ok(deviceDto);
+        return ResponseEntity.ok(createdDevice);
     }
     @PutMapping("/{id}")
     public ResponseEntity<DeviceDto> updateDevice(@PathVariable Long id, @RequestBody DeviceDto deviceDto) {
@@ -35,6 +37,12 @@ public class DeviceController {
         // Implement the delete logic here
         deviceService.deleteDevice(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(@PathVariable Long userId) {
+        List<DeviceDto> devices = deviceService.getAllDevicesByUserId(userId);
+        return ResponseEntity.ok(devices);
     }
 }
 

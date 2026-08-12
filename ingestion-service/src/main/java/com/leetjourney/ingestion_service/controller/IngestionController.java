@@ -1,6 +1,7 @@
 package com.leetjourney.ingestion_service.controller;
 
 import com.leetjourney.ingestion_service.dto.EnergyUsageDto;
+import com.leetjourney.ingestion_service.service.IngestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
